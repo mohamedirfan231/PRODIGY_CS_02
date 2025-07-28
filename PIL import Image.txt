@@ -1,0 +1,58 @@
+from PIL import Image
+
+def encrypt_image(input_path, output_path, key):
+    img = Image.open(input_path)
+    pixels = img.load()
+
+    width, height = img.size
+
+    for i in range(width):
+        for j in range(height):
+            r, g, b = pixels[i, j]
+
+            # Encrypt pixels by adding a key (mod 256 to keep RGB in range)
+            r = (r + key) % 256
+            g = (g + key) % 256
+            b = (b + key) % 256
+
+            pixels[i, j] = (r, g, b)
+
+    img.save(output_path)
+    print("Encryption done! Saved as:", output_path)
+
+def decrypt_image(input_path, output_path, key):
+    img = Image.open(input_path)
+    pixels = img.load()
+
+    width, height = img.size
+
+    for i in range(width):
+        for j in range(height):
+            r, g, b = pixels[i, j]
+
+            # Decrypt by subtracting the key (mod 256)
+            r = (r - key) % 256
+            g = (g - key) % 256
+            b = (b - key) % 256
+
+            pixels[i, j] = (r, g, b)
+
+    img.save(output_path)
+    print("Decryption done! Saved as:", output_path)
+
+def main():
+    print("Image Encryption/Decryption using Pixel Manipulation")
+    choice = input("Choose 'e' to encrypt or 'd' to decrypt: ").lower()
+    input_path = input("Enter path to the input image (e.g., 'image.jpg'): ")
+    output_path = input("Enter path to save the output image (e.g., 'output.jpg'): ")
+    key = int(input("Enter encryption key (number): "))
+
+    if choice == 'e':
+        encrypt_image(input_path, output_path, key)
+    elif choice == 'd':
+        decrypt_image(input_path, output_path, key)
+    else:
+        print("Invalid choice.")
+
+if __name__ == "__main__":
+    main()
