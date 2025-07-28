@@ -1,20 +1,25 @@
-# PRODIGY_CS_01 - Caesar Cipher Implementation
+# PRODIGY_CS_02 – Pixel Manipulation for Image Encryption
 
-## 🔐 Task Description
+## 🔐 Objective
+Create a simple program to encrypt and decrypt images by manipulating their pixels using Python.
 
-This project implements the *Caesar Cipher* encryption and decryption using Python.
+## ⚙ How It Works
+- *Encryption:* Adds a secret key value to each pixel's RGB channels.
+- *Decryption:* Subtracts the same key value to retrieve the original image.
 
-## 🚀 Features
+## 📁 Files Included
+- encrypt_decrypt.py — Python script to encrypt and decrypt images.
+- sample_input.png — The original image used as input.
+- encrypted.png — The encrypted image output.
+- decrypted.png — The decrypted image output (should match original).
+- README.md — This file.
 
-- Encrypts a message by shifting characters.
-- Decrypts a message by reversing the shift.
-- Handles both uppercase and lowercase letters.
-- Ignores symbols, numbers, and spaces.
+## 🛠 How to Run
 
-## 🖥 How to Run
-
-1. Clone the repository: git clone https://github.com/mohamedirfan231/PRODIGY_CS_02.git2.
-2. Navigate into the folder: cs PRODIGY_CS_02
-3. Run the script: PIL import Image.txt
-
+1. Make sure Python is installed.
+2. Install Pillow library:
+   ```bash
+    python -m pip install pillow
+3. Run the script:
+   PIL import Image.txt
 
